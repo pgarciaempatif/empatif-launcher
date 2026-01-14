@@ -1,0 +1,11 @@
+{
+  "icon": {
+    "source": "src/assets/EMPATIF_icono_morado.png",
+    "backgroundColor": "#6a27b8",
+    "padding": 0
+  },
+  "splash": {
+    "source": "src/assets/EMPATIF_icono_morado.png",
+    "backgroundColor": "#6a27b8"
+  }
+}

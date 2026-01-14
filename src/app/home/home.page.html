@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header *ngIf="!loading" translucent="true">
+  <ion-toolbar color="primary">
+    <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Splash web (fallback) -->
+  <div class="splash" *ngIf="loading">
+    <img src="assets\EMPATIF_icono_morado.png" alt="Empatif" width="100px"/>
+  </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <h1 style="text-align: center;">Bienvenido a Empatif</h1>
+
+  <!-- Botonera -->
+  <div class="grid" *ngIf="!loading">
+    <ion-card *ngFor="let item of links" button (click)="open(item.url)">
+      <ion-card-content class="card-content">
+        <ion-icon name="link-outline" size="large" aria-hidden="true"></ion-icon>
+        <div class="label">{{ item.label }}</div>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

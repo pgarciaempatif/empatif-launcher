@@ -1,9 +1,21 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'empatif-launcher',
-  webDir: 'www'
+  appId: 'com.empatif.launcher',
+  appName: 'Empatif Launcher',
+  webDir: 'www',
+  ios: { contentInset: 'automatic' },
+  android: {},
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 2500,
+      showSpinner: false,
+      backgroundColor: '-ion-color-primary',
+      androidScaleType: 'CENTER_CROP',
+      splashFullScreen: true,
+      splashImmersive: true
+    }
+  }
 };
 
 export default config;

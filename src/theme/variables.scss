@@ -1,2 +1,9 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+  --ion-color-primary: #6a27b8; /* morado Empatif aprox */
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-secondary: #ff6f61; /* coral */
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-dark: #121212;
+}

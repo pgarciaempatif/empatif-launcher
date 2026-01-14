@@ -3,8 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appTitle: 'Empatif',
+  links: [
+    { label: 'Zoho CRM', url: 'https://crm.zoho.eu' },
+    { label: 'NetSuite', url: 'https://system.netsuite.com' },
+    { label: 'Respond.io', url: 'https://app.respond.io' },
+    { label: 'Bizneo', url: 'https://app.bizneo.com' },
+  ],
+  splashDurationMs: 1200
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

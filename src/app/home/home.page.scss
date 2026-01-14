@@ -1,27 +1,33 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+  --background: linear-gradient(180deg, #ffffff 0%, #f6f3fb 100%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.splash {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--background); /* 💜 color primario */
+  animation: fadeInBg 0.8s ease;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes pop { 0% { transform: scale(0.92) } 100% { transform: scale(1) } }
+
+.grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
 }
 
-#container a {
-  text-decoration: none;
+.card-content {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  gap: 8px;
+  .label { font-weight: 600; }
 }
