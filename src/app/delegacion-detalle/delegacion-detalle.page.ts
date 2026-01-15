@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { Delegacion } from '../shared/models/delegacion.model';
 import { DelegacionesService } from '../services/delegaciones.service';
 
@@ -7,6 +9,8 @@ import { DelegacionesService } from '../services/delegaciones.service';
   selector: 'app-delegacion-detalle',
   templateUrl: './delegacion-detalle.page.html',
   styleUrls: ['./delegacion-detalle.page.scss'],
+  standalone: true,
+  imports: [CommonModule, IonicModule],
 })
 export class DelegacionDetallePage {
   delegacion?: Delegacion;

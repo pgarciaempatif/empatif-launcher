@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { INFO_RECURSOS } from '../config/app-links';
 import { RecursoInfo } from '../shared/models/recurso.model';
 
@@ -6,6 +8,8 @@ import { RecursoInfo } from '../shared/models/recurso.model';
   selector: 'app-info',
   templateUrl: './info.page.html',
   styleUrls: ['./info.page.scss'],
+  standalone: true,
+  imports: [CommonModule, IonicModule],
 })
 export class InfoPage {
   recursos = INFO_RECURSOS;

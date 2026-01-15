@@ -1,4 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 import { Delegacion } from '../shared/models/delegacion.model';
 import { DelegacionesService } from '../services/delegaciones.service';
 
@@ -6,6 +10,8 @@ import { DelegacionesService } from '../services/delegaciones.service';
   selector: 'app-delegaciones',
   templateUrl: './delegaciones.page.html',
   styleUrls: ['./delegaciones.page.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, IonicModule, RouterLink],
 })
 export class DelegacionesPage {
   delegaciones: Delegacion[] = [];
