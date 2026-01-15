@@ -1,0 +1,34 @@
+<ion-header translucent="true">
+  <ion-toolbar color="primary">
+    <ion-title>Delegaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar
+    placeholder="Buscar delegación"
+    [(ngModel)]="searchTerm"
+    animated="true"
+  ></ion-searchbar>
+
+  <ion-list *ngIf="filteredDelegaciones.length; else emptyState">
+    <ion-item
+      button
+      detail="true"
+      *ngFor="let delegacion of filteredDelegaciones"
+      [routerLink]="['/tabs/delegaciones', delegacion.id]"
+    >
+      <ion-label>
+        <h2>{{ delegacion.nombre }}</h2>
+        <p>{{ delegacion.direccion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #emptyState>
+    <div class="empty-state">
+      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+      <p>No se encontraron delegaciones con ese filtro.</p>
+    </div>
+  </ng-template>
+</ion-content>
