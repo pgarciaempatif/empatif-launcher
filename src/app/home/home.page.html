@@ -5,20 +5,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Splash web (fallback) -->
   <div class="splash" *ngIf="loading">
-    <img src="assets\EMPATIF_icono_morado.png" alt="Empatif" width="100px"/>
+    <img src="assets/EMPATIF_icono_morado.png" alt="Empatif" width="100" />
   </div>
 
-  <h1 style="text-align: center;">Bienvenido a Empatif</h1>
+  <div *ngIf="!loading" class="content">
+    <h1 class="page-title">Bienvenido a Empatif</h1>
 
-  <!-- Botonera -->
-  <div class="grid" *ngIf="!loading">
-    <ion-card *ngFor="let item of links" button (click)="open(item.url)">
-      <ion-card-content class="card-content">
-        <ion-icon name="link-outline" size="large" aria-hidden="true"></ion-icon>
-        <div class="label">{{ item.label }}</div>
-      </ion-card-content>
-    </ion-card>
+    <ion-grid class="links-grid">
+      <ion-row>
+        <ion-col size="6" size-md="6" size-lg="6" *ngFor="let link of links">
+          <ion-card button (click)="openExternal(link.url)">
+            <ion-card-content class="card-content">
+              <ion-icon [name]="link.icono" size="large" aria-hidden="true"></ion-icon>
+              <div>
+                <div class="label">{{ link.titulo }}</div>
+                <p class="description" *ngIf="link.descripcion">{{ link.descripcion }}</p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="actions">
+      <ion-button expand="block" color="secondary" (click)="goToTab('delegaciones')">
+        Ver delegaciones
+      </ion-button>
+      <ion-button expand="block" fill="outline" (click)="goToTab('info')">
+        Más información
+      </ion-button>
+    </div>
   </div>
 </ion-content>

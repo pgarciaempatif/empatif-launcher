@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Browser } from '@capacitor/browser';
+import { Router } from '@angular/router';
+import { HOME_LINKS, HomeLink } from '../config/app-links';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,16 +11,20 @@ import { environment } from 'src/environments/environment';
 })
 export class HomePage implements OnInit {
   title = environment.appTitle;
-  links = environment.links;
+  links: HomeLink[] = HOME_LINKS;
   loading = true;
 
-  async ngOnInit() {
-    // Splash web simple (además del nativo)
+  constructor(private router: Router) {}
+
+  ngOnInit() {
     setTimeout(() => (this.loading = false), environment.splashDurationMs);
   }
 
-  async open(url: string) {
-    // Abre en el navegador del sistema
-    await Browser.open({ url });
+  openExternal(url: string) {
+    window.open(url, '_blank');
+  }
+
+  goToTab(path: 'delegaciones' | 'info') {
+    this.router.navigate(['/tabs', path]);
   }
 }

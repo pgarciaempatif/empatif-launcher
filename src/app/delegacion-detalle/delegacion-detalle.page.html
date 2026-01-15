@@ -1,0 +1,49 @@
+<ion-header translucent="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/delegaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle delegación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="delegacion; else notFound">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Dirección:</strong> {{ delegacion.direccion }}</p>
+        <p><strong>Teléfono:</strong> {{ delegacion.telefono }}</p>
+        <p><strong>Email:</strong> {{ delegacion.email }}</p>
+        <p><strong>Horario:</strong> {{ delegacion.horario }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="actions">
+      <ion-button expand="block" [href]="'tel:' + delegacion.telefono">
+        Llamar
+      </ion-button>
+      <ion-button expand="block" fill="outline" [href]="'mailto:' + delegacion.email">
+        Email
+      </ion-button>
+      <ion-button
+        *ngIf="delegacion.mapsUrl"
+        expand="block"
+        color="tertiary"
+        (click)="openExternal(delegacion.mapsUrl)"
+      >
+        Abrir mapa
+      </ion-button>
+    </div>
+  </ng-container>
+
+  <ng-template #notFound>
+    <div class="empty-state">
+      <ion-icon name="alert-circle-outline" aria-hidden="true"></ion-icon>
+      <p>No se encontró la delegación solicitada.</p>
+      <ion-button expand="block" (click)="goBack()">Volver a delegaciones</ion-button>
+    </div>
+  </ng-template>
+</ion-content>
