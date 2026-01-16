@@ -1,22 +1,82 @@
+.carousel-shell {
+  position: relative;
+  margin: 16px;
+  padding: 32px 0 16px;
+  border-radius: 28px;
+  background-image: url('/assets/map-background.svg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.carousel-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.7));
+  pointer-events: none;
+}
+
 .delegaciones-carousel {
+  position: relative;
   display: flex;
   gap: 16px;
-  padding: 0 16px 24px;
+  padding: 16px 72px 32px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 .delegaciones-carousel::-webkit-scrollbar {
   display: none;
 }
 
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(17, 24, 39, 0.75);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-nav ion-icon {
+  font-size: 22px;
+}
+
+.carousel-nav.prev {
+  left: 16px;
+}
+
+.carousel-nav.next {
+  right: 16px;
+}
+
+.carousel-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.carousel-nav:not(:disabled):hover {
+  transform: translateY(-60%) scale(1.04);
+}
+
 .delegacion-card {
-  flex: 0 0 80%;
-  max-width: 320px;
+  flex: 0 0 72%;
+  max-width: 340px;
   scroll-snap-align: center;
   border-radius: 20px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  backdrop-filter: blur(2px);
 }
 
 .delegacion-card ion-img {
@@ -44,6 +104,15 @@
 .delegacion-address ion-icon {
   font-size: 1rem;
   margin-top: 2px;
+}
+
+.carousel-hint {
+  position: relative;
+  margin: 0;
+  padding-bottom: 16px;
+  text-align: center;
+  color: var(--ion-color-medium);
+  font-size: 0.85rem;
 }
 
 .empty-state {

@@ -8,27 +8,56 @@
   <ion-searchbar
     placeholder="Buscar delegación"
     [(ngModel)]="searchTerm"
+    (ionInput)="handleSearch()"
     animated="true"
   ></ion-searchbar>
 
-  <div class="delegaciones-carousel" *ngIf="filteredDelegaciones.length; else emptyState">
-    <ion-card
-      class="delegacion-card"
-      *ngFor="let delegacion of filteredDelegaciones"
-      button
-      [routerLink]="['/tabs/delegaciones', delegacion.id]"
+  <div class="carousel-shell" *ngIf="filteredDelegaciones.length; else emptyState">
+    <button
+      class="carousel-nav prev"
+      type="button"
+      (click)="scrollCarousel(-1)"
+      [disabled]="!canScrollPrev"
+      aria-label="Ver delegación anterior"
     >
-      <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="delegacion-address">
-          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-          <span>{{ delegacion.direccion }}</span>
-        </div>
-      </ion-card-content>
-    </ion-card>
+      <ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon>
+    </button>
+
+    <div
+      class="delegaciones-carousel"
+      #carousel
+      (scroll)="updateScrollState()"
+    >
+      <ion-card
+        class="delegacion-card"
+        *ngFor="let delegacion of filteredDelegaciones"
+        button
+        [routerLink]="['/tabs/delegaciones', delegacion.id]"
+      >
+        <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="delegacion-address">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+            <span>{{ delegacion.direccion }}</span>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <button
+      class="carousel-nav next"
+      type="button"
+      (click)="scrollCarousel(1)"
+      [disabled]="!canScrollNext"
+      aria-label="Ver siguiente delegación"
+    >
+      <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+    </button>
+
+    <p class="carousel-hint">Desliza o usa las flechas para recorrer las delegaciones.</p>
   </div>
 
   <ng-template #emptyState>
