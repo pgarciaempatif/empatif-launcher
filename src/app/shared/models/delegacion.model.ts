@@ -5,5 +5,6 @@ export interface Delegacion {
   telefono: string;
   email: string;
   horario: string;
+  imagenUrl: string;
   mapsUrl?: string;
 }
