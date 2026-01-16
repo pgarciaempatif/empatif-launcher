@@ -1,40 +1,44 @@
-<ion-header *ngIf="!loading" translucent="true">
-  <ion-toolbar color="primary">
-    <ion-title>{{ title }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <div class="splash" *ngIf="loading">
     <img src="assets/EMPATIF_icono_morado.png" alt="Empatif" width="100" />
   </div>
 
-  <div *ngIf="!loading" class="content">
-    <h1 class="page-title">Bienvenido a Empatif</h1>
+  <div *ngIf="!loading" class="home-shell">
+    <section class="hero">
+      <div class="hero-top">
+        <div class="logo-badge">
+          <img src="assets/EMPATIF_icono_morado.png" alt="Empatif" />
+        </div>
+      </div>
+    </section>
 
-    <ion-grid class="links-grid">
-      <ion-row>
-        <ion-col size="6" size-md="6" size-lg="6" *ngFor="let link of links">
-          <ion-card button (click)="openExternal(link.url)">
-            <ion-card-content class="card-content">
-              <ion-icon [name]="link.icono" size="large" aria-hidden="true"></ion-icon>
-              <div>
-                <div class="label">{{ link.titulo }}</div>
-                <p class="description" *ngIf="link.descripcion">{{ link.descripcion }}</p>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <section class="home-body">
+      <ion-card
+        class="featured-card"
+        button
+        *ngIf="featuredLink"
+        (click)="openExternal(featuredLink.url)"
+      >
+        <div class="featured-media">
+          <ion-icon [name]="featuredLink.icono" aria-hidden="true"></ion-icon>
+        </div>
+        <ion-card-content class="featured-content">
+          <h2>{{ featuredLink.titulo }}</h2>
+          <p *ngIf="featuredLink.descripcion">{{ featuredLink.descripcion }}</p>
+        </ion-card-content>
+      </ion-card>
 
-    <div class="actions">
-      <ion-button expand="block" color="secondary" (click)="goToTab('delegaciones')">
-        Ver delegaciones
-      </ion-button>
-      <ion-button expand="block" fill="outline" (click)="goToTab('info')">
-        Más información
-      </ion-button>
-    </div>
+      <div class="tiles">
+        <button
+          class="tile"
+          type="button"
+          *ngFor="let link of tileLinks"
+          (click)="openExternal(link.url)"
+        >
+          <ion-icon [name]="link.icono" aria-hidden="true"></ion-icon>
+          <span>{{ link.titulo }}</span>
+        </button>
+      </div>
+    </section>
   </div>
 </ion-content>
