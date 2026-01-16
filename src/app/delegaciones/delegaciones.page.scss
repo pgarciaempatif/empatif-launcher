@@ -1,3 +1,51 @@
+.delegaciones-carousel {
+  display: flex;
+  gap: 16px;
+  padding: 0 16px 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.delegaciones-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.delegacion-card {
+  flex: 0 0 80%;
+  max-width: 320px;
+  scroll-snap-align: center;
+  border-radius: 20px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.delegacion-card ion-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.delegacion-card ion-card-header {
+  padding-bottom: 0;
+}
+
+.delegacion-card ion-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.delegacion-address {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--ion-color-medium);
+  font-size: 0.9rem;
+}
+
+.delegacion-address ion-icon {
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
 .empty-state {
   text-align: center;
   color: var(--ion-color-medium);

@@ -11,19 +11,25 @@
     animated="true"
   ></ion-searchbar>
 
-  <ion-list *ngIf="filteredDelegaciones.length; else emptyState">
-    <ion-item
-      button
-      detail="true"
+  <div class="delegaciones-carousel" *ngIf="filteredDelegaciones.length; else emptyState">
+    <ion-card
+      class="delegacion-card"
       *ngFor="let delegacion of filteredDelegaciones"
+      button
       [routerLink]="['/tabs/delegaciones', delegacion.id]"
     >
-      <ion-label>
-        <h2>{{ delegacion.nombre }}</h2>
-        <p>{{ delegacion.direccion }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+      <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="delegacion-address">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          <span>{{ delegacion.direccion }}</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
   <ng-template #emptyState>
     <div class="empty-state">

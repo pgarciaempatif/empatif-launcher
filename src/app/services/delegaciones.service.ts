@@ -9,6 +9,8 @@ const DELEGACIONES: Delegacion[] = [
     telefono: '+34 931 234 567',
     email: 'barcelona@empatif.com',
     horario: 'L-V 09:00 - 18:00',
+    imagenUrl:
+      'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80',
     mapsUrl: 'https://maps.google.com/?q=Barcelona'
   },
   {
@@ -18,6 +20,8 @@ const DELEGACIONES: Delegacion[] = [
     telefono: '+34 911 456 789',
     email: 'madrid@empatif.com',
     horario: 'L-V 09:00 - 18:00',
+    imagenUrl:
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
     mapsUrl: 'https://maps.google.com/?q=Madrid'
   },
   {
@@ -26,7 +30,9 @@ const DELEGACIONES: Delegacion[] = [
     direccion: 'Av. del Puerto, 88, 46023 Valencia',
     telefono: '+34 961 234 987',
     email: 'valencia@empatif.com',
-    horario: 'L-V 08:30 - 17:30'
+    horario: 'L-V 08:30 - 17:30',
+    imagenUrl:
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
