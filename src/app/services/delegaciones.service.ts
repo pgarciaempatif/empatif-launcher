@@ -3,6 +3,19 @@ import { Delegacion } from '../shared/models/delegacion.model';
 
 const DELEGACIONES: Delegacion[] = [
   {
+    id: 'manresa',
+    nombre: 'Delegación Manresa',
+    direccion: 'Ctra. de Cardona, 56 -60, 08242 Manresa, Barcelona',
+    telefono: '+34 938 78 66 35',
+    email: 'manresa@empatif.com',
+    horario: 'L-V 09:00 - 18:00',
+    imagenUrl:
+      'https://empatif.com/wp-content/uploads/2024/10/Copia-de-Empatif-Meet-Banner.png',
+    mapsUrl: 'https://maps.app.goo.gl/U7NVjMaa3hMn6CdN9',
+    latitude: 41.72606598588227,
+    longitude: 1.8189699965372035
+  },
+  {
     id: 'barcelona',
     nombre: 'Delegación Barcelona',
     direccion: 'Carrer de la Marina, 123, 08013 Barcelona',
@@ -11,7 +24,9 @@ const DELEGACIONES: Delegacion[] = [
     horario: 'L-V 09:00 - 18:00',
     imagenUrl:
       'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80',
-    mapsUrl: 'https://maps.google.com/?q=Barcelona'
+    mapsUrl: 'https://maps.google.com/?q=Barcelona',
+    latitude: 41.3851,
+    longitude: 2.1734
   },
   {
     id: 'madrid',
@@ -22,7 +37,9 @@ const DELEGACIONES: Delegacion[] = [
     horario: 'L-V 09:00 - 18:00',
     imagenUrl:
       'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',
-    mapsUrl: 'https://maps.google.com/?q=Madrid'
+    mapsUrl: 'https://maps.google.com/?q=Madrid',
+    latitude: 40.4168,
+    longitude: -3.7038
   },
   {
     id: 'valencia',
@@ -32,7 +49,9 @@ const DELEGACIONES: Delegacion[] = [
     email: 'valencia@empatif.com',
     horario: 'L-V 08:30 - 17:30',
     imagenUrl:
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    latitude: 39.4699,
+    longitude: -0.3763
   }
 ];
 

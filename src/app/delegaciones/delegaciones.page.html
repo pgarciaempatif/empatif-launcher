@@ -4,60 +4,55 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="delegaciones-content">
+  <!-- Mapa interactivo como fondo -->
+  <div class="map-container" #mapContainer></div>
+
+  <!-- Buscador -->
   <ion-searchbar
+    #searchBar
     placeholder="Buscar delegación"
     [(ngModel)]="searchTerm"
     (ionInput)="handleSearch()"
     animated="true"
+    class="search-bar"
   ></ion-searchbar>
 
-  <div class="carousel-shell" *ngIf="filteredDelegaciones.length; else emptyState">
-    <button
-      class="carousel-nav prev"
-      type="button"
-      (click)="scrollCarousel(-1)"
-      [disabled]="!canScrollPrev"
-      aria-label="Ver delegación anterior"
+  <!-- Carrusel en la parte baja -->
+  <div #carouselContainer class="carousel-container" *ngIf="filteredDelegaciones.length; else emptyState">
+    <swiper-container
+      [attr.slides-per-view]="'auto'"
+      [attr.centered-slides]="'true'"
+      [attr.loop]="'false'"
+      [attr.space-between]="'16'"
+      [attr.grab-cursor]="'true'"
+      class="delegaciones-swiper"
+      (swiperslidechange)="onSlideChange($event)"
     >
-      <ion-icon name="chevron-back-outline" aria-hidden="true"></ion-icon>
-    </button>
+      <swiper-slide *ngFor="let delegacion of filteredDelegaciones; let i = index" class="delegacion-slide" [attr.data-index]="i">
+        <ion-card
+          class="delegacion-card"
+          [class.active]="delegacion.id === activeDelegacion?.id"
+          button
+          (click)="openDelegacionDetalle(delegacion)"
+        >
+          <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="delegacion-address">
+              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+              <span>{{ delegacion.direccion }}</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </swiper-slide>
 
-    <div
-      class="delegaciones-carousel"
-      #carousel
-      (scroll)="updateScrollState()"
-    >
-      <ion-card
-        class="delegacion-card"
-        *ngFor="let delegacion of filteredDelegaciones"
-        button
-        [routerLink]="['/tabs/delegaciones', delegacion.id]"
-      >
-        <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
-        <ion-card-header>
-          <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="delegacion-address">
-            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-            <span>{{ delegacion.direccion }}</span>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </div>
-
-    <button
-      class="carousel-nav next"
-      type="button"
-      (click)="scrollCarousel(1)"
-      [disabled]="!canScrollNext"
-      aria-label="Ver siguiente delegación"
-    >
-      <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-    </button>
-
-    <p class="carousel-hint">Desliza o usa las flechas para recorrer las delegaciones.</p>
+      <!-- Flechas de navegación -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </swiper-container>
   </div>
 
   <ng-template #emptyState>

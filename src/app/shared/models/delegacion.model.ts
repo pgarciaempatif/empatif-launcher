@@ -7,4 +7,6 @@ export interface Delegacion {
   horario: string;
   imagenUrl: string;
   mapsUrl?: string;
+  latitude: number;
+  longitude: number;
 }
