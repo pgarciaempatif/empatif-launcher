@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild, CUSTOM_ELEMENTS_SCHEMA, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import * as L from 'leaflet';
 import 'leaflet-providers';
@@ -49,7 +49,7 @@ const getAvailableProviders = () => {
   templateUrl: './delegaciones.page.html',
   styleUrls: ['./delegaciones.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule, RouterLink],
+  imports: [CommonModule, FormsModule, IonicModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DelegacionesPage implements AfterViewInit, OnDestroy {
@@ -156,7 +156,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
         <div class="empatif-marker">
           <div class="marker-pulse"></div>
           <div class="marker-circle">
-            <img src="assets/EMPATIF_icono_morado.png" alt="Empatif" class="marker-logo" />
+            <img src="assets/icons/icon-96x96.png" alt="Empatif" class="marker-logo" />
           </div>
           <div class="marker-tail"></div>
         </div>
