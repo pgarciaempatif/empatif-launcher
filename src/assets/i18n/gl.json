@@ -1,0 +1,84 @@
+{
+  "DELEGACION": {
+    "BOTONES": {
+      "ABRIR_MAPA": "Abrir mapa",
+      "ENVIAR_EMAIL": "Enviar correo",
+      "LLAMAR": "Chamar"
+    },
+    "DELEGACION": "Delegación",
+    "DETALLE": {
+      "DIRECCION": "Enderezo",
+      "EMAIL": "Email",
+      "HORARIO": "Horario",
+      "TELEFONO": "Teléfono"
+    },
+    "ERROR": {
+      "MENSAJE": "Non se atopou a delegación solicitada.",
+      "VOLVER": "Volver a delegacións"
+    },
+    "TITULO": "Detalle delegación",
+    "VOLVER": "Volver"
+  },
+  "DELEGACIONES": {
+    "BUSCADOR": {
+      "PLACEHOLDER": "Buscar delegación"
+    },
+    "DELEGACION": "Delegación",
+    "ERROR": {
+      "MENSAJE": "Non se atoparon delegacións con ese filtro."
+    },
+    "TITULO": "Delegacións"
+  },
+  "HOME": {
+    "FEATURED_LINK": {
+      "DESCRIPCION": "Rexistra a túa xornada laboral facilmente.",
+      "TITULO": "Rexistro horario"
+    },
+    "HOME_LINKS": {
+      "FORMACION": {
+        "DESCRIPCION": "Plataforma de cursos e capacitacións.",
+        "TITULO": "Formación"
+      },
+      "MANUAL": {
+        "DESCRIPCION": "Guía rápida para empregados.",
+        "TITULO": "Manual de Uso"
+      },
+      "OFERTAS_EMPLEO": {
+        "DESCRIPCION": "Consulta as vacantes dispoñibles.",
+        "TITULO": "Ofertas de Emprego"
+      },
+      "PORTAL_TRABAJADOR": {
+        "DESCRIPCION": "Accede ao portal de empregados.",
+        "TITULO": "Portal Traballador"
+      }
+    }
+  },
+  "INFO": {
+    "DOCUMENTO": "Documento",
+    "ENLACE": "Ligazón",
+    "GUIAS_RAPIDAS": "Guías Rápidas",
+    "INFO_RECURSOS": {
+      "CONTACTO_SOPORTE": {
+        "CONTENIDO": "Escríbenos a soporte@empatif.com para incidencias urxentes.",
+        "TITULO": "Soporte rápido"
+      },
+      "FAQ": {
+        "CONTENIDO": "Consulta as dúbidas máis habituais sobre procesos internos.",
+        "TITULO": "Preguntas frecuentes"
+      },
+      "MANUAL_USUARIO": {
+        "TITULO": "Manual de usuario (PDF)"
+      },
+      "PORTAL_EMPLEADO": {
+        "TITULO": "Portal do empregado"
+      }
+    },
+    "RECURSOS": "Recursos",
+    "TITULO": "Axuda e Información"
+  },
+  "TABS": {
+    "DELEGACIONES": "Delegacións",
+    "HOME": "Inicio",
+    "INFO": "Información"
+  }
+}

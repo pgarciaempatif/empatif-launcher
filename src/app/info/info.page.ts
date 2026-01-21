@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { INFO_RECURSOS } from '../config/app-links';
 import { RecursoInfo } from '../shared/models/types.model';
 
@@ -9,10 +10,16 @@ import { RecursoInfo } from '../shared/models/types.model';
   templateUrl: './info.page.html',
   styleUrls: ['./info.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule, TranslateModule],
 })
 export class InfoPage {
   recursos = INFO_RECURSOS;
+
+  currentLang = 'es';
+
+  constructor(private translate: TranslateService) {
+    this.currentLang = this.translate.getCurrentLang() || 'es';
+  }
 
   get recursosSection(): RecursoInfo[] {
     return this.recursos.filter(recurso => recurso.seccion === 'recursos');
@@ -26,9 +33,12 @@ export class InfoPage {
     if (!recurso.url) {
       return;
     }
-
-    // Si en el futuro se usan PDFs locales, reemplazar por un handler
-    // que resuelva rutas de assets o FileSystem/Capacitor.
     window.open(recurso.url, '_blank');
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('APP_LANG', lang);
+    this.currentLang = lang;
   }
 }

@@ -2,38 +2,38 @@ import { HomeLink, RecursoInfo } from '../shared/models/types.model';
 
 export const FEATURED_LINK: HomeLink = {
   id: 'registro-horario',
-  titulo: 'Registro horario',
-  descripcion: 'Registra tu jornada laboral fácilmente.',
+  tituloKey: 'HOME.FEATURED_LINK.TITULO',
+  descripcionKey: 'HOME.FEATURED_LINK.DESCRIPCION',
   icono: 'time-outline',
-  url: 'https://example.com'
+  url: 'https://empatif.e-oer.com/time/'
 };
 
 export const HOME_LINKS: HomeLink[] = [
   {
     id: 'portal-trabajador',
-    titulo: 'Portal Trabajador',
-    descripcion: 'Accede al portal de empleados.',
+    tituloKey: 'HOME.HOME_LINKS.PORTAL_TRABAJADOR.TITULO',
+    descripcionKey: 'HOME.HOME_LINKS.PORTAL_TRABAJADOR.DESCRIPCION',
     icono: 'person-outline',
-    url: 'https://example.com'
+    url: 'https://empatif.e-oer.com/candidato/'
   },
   {
     id: 'ofertas-empleo',
-    titulo: 'Ofertas de Empleo',
-    descripcion: 'Consulta las vacantes disponibles.',
+    tituloKey: 'HOME.HOME_LINKS.OFERTAS_EMPLEO.TITULO',
+    descripcionKey: 'HOME.HOME_LINKS.OFERTAS_EMPLEO.DESCRIPCION',
     icono: 'briefcase-outline',
-    url: 'https://example.com'
+    url: 'https://empatif.com/encuentra-trabajo/staffing/'
   },
   {
     id: 'formacion',
-    titulo: 'Formación',
-    descripcion: 'Plataforma de cursos y capacitaciones.',
+    tituloKey: 'HOME.HOME_LINKS.FORMACION.TITULO',
+    descripcionKey: 'HOME.HOME_LINKS.FORMACION.DESCRIPCION',
     icono: 'school-outline',
-    url: 'https://example.com'
+    url: 'https://empatifstaffing.curso-online.net/'
   },
   {
     id: 'manual',
-    titulo: 'Manual de Uso',
-    descripcion: 'Guía rápida para empleados.',
+    tituloKey: 'HOME.HOME_LINKS.MANUAL.TITULO',
+    descripcionKey: 'HOME.HOME_LINKS.MANUAL.DESCRIPCION',
     icono: 'help-circle-outline',
     url: 'https://example.com'
   }
@@ -42,30 +42,30 @@ export const HOME_LINKS: HomeLink[] = [
 export const INFO_RECURSOS: RecursoInfo[] = [
   {
     id: 'manual-usuario',
-    titulo: 'Manual de usuario (PDF)',
+    tituloKey: 'INFO.INFO_RECURSOS.MANUAL_USUARIO.TITULO',
     tipo: 'pdf',
     seccion: 'recursos',
     url: 'https://example.com/manual-usuario.pdf'
   },
   {
     id: 'portal-empleado',
-    titulo: 'Portal del empleado',
+    tituloKey: 'INFO.INFO_RECURSOS.PORTAL_EMPLEADO.TITULO',
     tipo: 'link',
     seccion: 'recursos',
     url: 'https://example.com/portal'
   },
   {
     id: 'faq',
-    titulo: 'Preguntas frecuentes',
+    tituloKey: 'INFO.INFO_RECURSOS.FAQ.TITULO',
     tipo: 'text',
     seccion: 'guias',
-    contenido: 'Consulta las dudas más habituales sobre procesos internos.'
+    contenidoKey: 'INFO.INFO_RECURSOS.FAQ.CONTENIDO',
   },
   {
     id: 'contacto-soporte',
-    titulo: 'Soporte rápido',
+    tituloKey: 'INFO.INFO_RECURSOS.CONTACTO_SOPORTE.TITULO',
     tipo: 'text',
     seccion: 'guias',
-    contenido: 'Escríbenos a soporte@empatif.com para incidencias urgentes.'
+    contenidoKey: 'INFO.INFO_RECURSOS.CONTACTO_SOPORTE.CONTENIDO',
   }
 ];

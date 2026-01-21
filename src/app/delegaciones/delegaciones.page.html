@@ -1,6 +1,6 @@
 <ion-header translucent="true">
   <ion-toolbar color="primary">
-    <ion-title>Delegaciones</ion-title>
+    <ion-title>{{ 'DELEGACIONES.TITULO' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,8 @@
   <!-- Buscador -->
   <ion-searchbar
     #searchBar
-    placeholder="Buscar delegación"
+    placeholder="{{ 'DELEGACIONES.BUSCADOR.PLACEHOLDER' | translate }}"
+    mode="ios"
     [(ngModel)]="searchTerm"
     (ionInput)="handleSearch()"
     animated="true"
@@ -23,7 +24,7 @@
     <swiper-container
       [attr.slides-per-view]="'auto'"
       [attr.centered-slides]="'true'"
-      [attr.loop]="'false'"
+      [attr.loop]="'true'"
       [attr.space-between]="'16'"
       [attr.grab-cursor]="'true'"
       class="delegaciones-swiper"
@@ -38,7 +39,7 @@
         >
           <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
           <ion-card-header>
-            <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
+            <ion-card-title>{{ 'DELEGACIONES.DELEGACION' | translate }} {{ delegacion.nombre }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <div class="delegacion-address">
@@ -48,17 +49,13 @@
           </ion-card-content>
         </ion-card>
       </swiper-slide>
-
-      <!-- Flechas de navegación -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </swiper-container>
   </div>
 
   <ng-template #emptyState>
     <div class="empty-state">
       <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-      <p>No se encontraron delegaciones con ese filtro.</p>
+      <p>{{ 'DELEGACIONES.ERROR.MENSAJE' | translate }}</p>
     </div>
   </ng-template>
 </ion-content>

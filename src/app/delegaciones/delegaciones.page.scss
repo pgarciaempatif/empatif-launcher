@@ -46,19 +46,18 @@
 }
 
 .delegacion-slide {
-  flex: 0 0 340px;
+  min-width: 340px;
+  max-width: min(90vw, 400px);
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 340px;
-  min-width: 340px;
 }
 
 .delegacion-card {
-  width: 340px;
+  width: 100%;
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.3s ease;

@@ -1,40 +1,42 @@
 <ion-header translucent="true">
   <ion-toolbar color="primary">
-    <ion-title>Ayuda e información</ion-title>
+    <ion-title>{{ 'INFO.TITULO' | translate }}</ion-title>
+
+    <ion-buttons slot="end" style="height: 0;">
+      <ion-select interface="popover" [value]="currentLang" (ionChange)="changeLanguage($event.detail.value)" selectedText="{{ currentLang.toUpperCase() }}" toggleIcon="" mode="md">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="ca">Català</ion-select-option>
+        <ion-select-option value="gl">Galego</ion-select-option>
+      </ion-select>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-list-header>
-      <ion-label>Recursos</ion-label>
+      <ion-label>{{ 'INFO.RECURSOS' | translate }}</ion-label>
     </ion-list-header>
-    <ion-item
-      *ngFor="let recurso of recursosSection"
-      [button]="recurso.tipo !== 'text'"
-      (click)="recurso.tipo !== 'text' && openResource(recurso)"
-    >
-      <ion-icon
-        [name]="recurso.tipo === 'pdf' ? 'document-text-outline' : 'link-outline'"
-        slot="start"
-      ></ion-icon>
+    <ion-item *ngFor="let recurso of recursosSection" [button]="recurso.tipo !== 'text'"
+      (click)="recurso.tipo !== 'text' && openResource(recurso)">
+      <ion-icon [name]="recurso.tipo === 'pdf' ? 'document-text-outline' : 'link-outline'" slot="start"></ion-icon>
       <ion-label>
-        <h2>{{ recurso.titulo }}</h2>
-        <p *ngIf="recurso.tipo === 'pdf'">Documento PDF</p>
+        <h2>{{ recurso.tituloKey | translate }}</h2>
+        <p *ngIf="recurso.tipo === 'pdf'">{{ 'INFO.DOCUMENTO' | translate }} PDF</p>
       </ion-label>
-      <ion-badge *ngIf="recurso.tipo === 'link'" color="tertiary">Enlace</ion-badge>
+      <ion-badge *ngIf="recurso.tipo === 'link'" color="tertiary">{{ 'INFO.ENLACE' | translate }}</ion-badge>
     </ion-item>
   </ion-list>
 
   <ion-list>
     <ion-list-header>
-      <ion-label>Guías rápidas</ion-label>
+      <ion-label>{{ 'INFO.GUIAS_RAPIDAS' | translate }}</ion-label>
     </ion-list-header>
     <ion-item *ngFor="let guia of guiasSection">
       <ion-icon name="help-circle-outline" slot="start"></ion-icon>
       <ion-label>
-        <h2>{{ guia.titulo }}</h2>
-        <p>{{ guia.contenido }}</p>
+        <h2>{{ guia.tituloKey | translate }}</h2>
+        <p>{{ guia.contenidoKey | translate }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

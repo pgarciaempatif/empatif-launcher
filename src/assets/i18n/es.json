@@ -1,0 +1,84 @@
+{
+  "DELEGACION": {
+    "BOTONES": {
+      "ABRIR_MAPA": "Abrir mapa",
+      "ENVIAR_EMAIL": "Enviar email",
+      "LLAMAR": "Llamar"
+    },
+    "DELEGACION": "Delegación",
+    "DETALLE": {
+      "DIRECCION": "Dirección",
+      "EMAIL": "Email",
+      "HORARIO": "Horario",
+      "TELEFONO": "Teléfono"
+    },
+    "ERROR": {
+      "MENSAJE": "No se encontró la delegación solicitada.",
+      "VOLVER": "Volver a delegaciones"
+    },
+    "TITULO": "Detalle delegación",
+    "VOLVER": "Volver"
+  },
+  "DELEGACIONES": {
+    "BUSCADOR": {
+      "PLACEHOLDER": "Buscar delegación"
+    },
+    "DELEGACION": "Delegación",
+    "ERROR": {
+      "MENSAJE": "No se encontraron delegaciones con ese filtro."
+    },
+    "TITULO": "Delegaciones"
+  },
+  "HOME": {
+    "FEATURED_LINK": {
+      "DESCRIPCION": "Registra tu jornada laboral fácilmente.",
+      "TITULO": "Registro horario"
+    },
+    "HOME_LINKS": {
+      "FORMACION": {
+        "DESCRIPCION": "Plataforma de cursos y capacitaciones.",
+        "TITULO": "Formación"
+      },
+      "MANUAL": {
+        "DESCRIPCION": "Guía rápida para empleados.",
+        "TITULO": "Manual de Uso"
+      },
+      "OFERTAS_EMPLEO": {
+        "DESCRIPCION": "Consulta las vacantes disponibles.",
+        "TITULO": "Ofertas de Empleo"
+      },
+      "PORTAL_TRABAJADOR": {
+        "DESCRIPCION": "Accede al portal de empleados.",
+        "TITULO": "Portal Trabajador"
+      }
+    }
+  },
+  "INFO": {
+    "DOCUMENTO": "Documento",
+    "ENLACE": "Enlace",
+    "GUIAS_RAPIDAS": "Guías Rápidas",
+    "INFO_RECURSOS": {
+      "CONTACTO_SOPORTE": {
+        "CONTENIDO": "Escríbenos a soporte@empatif.com para incidencias urgentes.",
+        "TITULO": "Soporte rápido"
+      },
+      "FAQ": {
+        "CONTENIDO": "Consulta las dudas más habituales sobre procesos internos.",
+        "TITULO": "Preguntas frecuentes"
+      },
+      "MANUAL_USUARIO": {
+        "TITULO": "Manual de usuario (PDF)"
+      },
+      "PORTAL_EMPLEADO": {
+        "TITULO": "Portal del empleado"
+      }
+    },
+    "RECURSOS": "Recursos",
+    "TITULO": "Ayuda e Información"
+  },
+  "TABS": {
+    "DELEGACIONES": "Delegaciones",
+    "HOME": "Inicio",
+    "INFO": "Información"
+  }
+}

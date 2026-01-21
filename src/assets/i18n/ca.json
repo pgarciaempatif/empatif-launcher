@@ -1,0 +1,84 @@
+{
+  "DELEGACION": {
+    "BOTONES": {
+      "ABRIR_MAPA": "Obrir mapa",
+      "ENVIAR_EMAIL": "Enviar correu",
+      "LLAMAR": "Trucar"
+    },
+    "DELEGACION": "Delegació",
+    "DETALLE": {
+      "DIRECCION": "Adreça",
+      "EMAIL": "Email",
+      "HORARIO": "Horari",
+      "TELEFONO": "Telèfon"
+    },
+    "ERROR": {
+      "MENSAJE": "No s'ha trobat la delegació sol·licitada.",
+      "VOLVER": "Tornar a delegacions"
+    },
+    "TITULO": "Detall delegació",
+    "VOLVER": "Tornar"
+  },
+  "DELEGACIONES": {
+    "BUSCADOR": {
+      "PLACEHOLDER": "Buscar delegació"
+    },
+    "DELEGACION": "Delegació",
+    "ERROR": {
+      "MENSAJE": "No s'han trobat delegacions amb aquest filtre."
+    },
+    "TITULO": "Delegacions"
+  },
+  "HOME": {
+    "FEATURED_LINK": {
+      "DESCRIPCION": "Registra la teva jornada laboral fàcilment.",
+      "TITULO": "Registre horari"
+    },
+    "HOME_LINKS": {
+      "FORMACION": {
+        "DESCRIPCION": "Plataforma de cursos i capacitacions.",
+        "TITULO": "Formació"
+      },
+      "MANUAL": {
+        "DESCRIPCION": "Guia ràpida per a empleats.",
+        "TITULO": "Manual d'ús"
+      },
+      "OFERTAS_EMPLEO": {
+        "DESCRIPCION": "Consulta les vacants disponibles.",
+        "TITULO": "Ofertes d'ocupació"
+      },
+      "PORTAL_TRABAJADOR": {
+        "DESCRIPCION": "Accedeix al portal d'empleats.",
+        "TITULO": "Portal treballador"
+      }
+    }
+  },
+  "INFO": {
+    "DOCUMENTO": "Document",
+    "ENLACE": "Enllaç",
+    "GUIAS_RAPIDAS": "Guies Ràpides",
+    "INFO_RECURSOS": {
+      "CONTACTO_SOPORTE": {
+        "CONTENIDO": "Escriu-nos a soporte@empatif.com per a incidències urgents.",
+        "TITULO": "Suport ràpid"
+      },
+      "FAQ": {
+        "CONTENIDO": "Consulta els dubtes més habituals sobre processos interns.",
+        "TITULO": "Preguntes freqüents"
+      },
+      "MANUAL_USUARIO": {
+        "TITULO": "Manual d'usuari (PDF)"
+      },
+      "PORTAL_EMPLEADO": {
+        "TITULO": "Portal de l'empleat"
+      }
+    },
+    "RECURSOS": "Recursos",
+    "TITULO": "Ajuda i Informació"
+  },
+  "TABS": {
+    "DELEGACIONES": "Delegacions",
+    "HOME": "Inici",
+    "INFO": "Informació"
+  }
+}

@@ -4,17 +4,17 @@
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" [routerLink]="['/tabs/home']">
       <ion-icon name="home-outline" aria-hidden="true"></ion-icon>
-      <ion-label>Home</ion-label>
+      <ion-label>{{ 'TABS.HOME' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="delegaciones" [routerLink]="['/tabs/delegaciones']">
       <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-      <ion-label>Delegaciones</ion-label>
+      <ion-label>{{ 'TABS.DELEGACIONES' | translate }}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="info" [routerLink]="['/tabs/info']">
       <ion-icon name="information-circle-outline" aria-hidden="true"></ion-icon>
-      <ion-label>Información</ion-label>
+      <ion-label>{{ 'TABS.INFO' | translate }}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Delegacion } from '../shared/models/types.model';
 import { DelegacionesService } from '../services/delegaciones.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 // Registrar elementos de Swiper
 register();
@@ -49,7 +50,7 @@ const getAvailableProviders = () => {
   templateUrl: './delegaciones.page.html',
   styleUrls: ['./delegaciones.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule],
+  imports: [CommonModule, FormsModule, IonicModule, TranslateModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DelegacionesPage implements AfterViewInit, OnDestroy {
@@ -61,7 +62,8 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
   private marker: L.Marker | null = null;
   private searchSubject = new Subject<string>();
   private searchSubscription: any;
-  
+  private lastCenter: [number, number] | null = null;
+
   // CAMBIA ESTE VALOR PARA PROBAR DIFERENTES TEMAS
   currentTheme: MapTheme = 'CartoDB.Positron';
   availableThemes = getAvailableProviders();
@@ -80,7 +82,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
       this.initializeMap();
       this.onSlidesReady();
     }, 150);
-    
+
     // Configurar debounce para la búsqueda
     this.searchSubscription = this.searchSubject
       .pipe(debounceTime(200))
@@ -167,12 +169,22 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
       popupAnchor: [0, -70],
     });
 
-    return L.marker([delegacion.latitude, delegacion.longitude], { icon });
+    return L.marker(delegacion.coordenadas, { icon });
   }
 
   private updateMapMarker(delegacion: Delegacion): void {
     if (!this.map) {
       return;
+    }
+    
+    const newCenter = delegacion.coordenadas;
+    const isSameCenter =
+      this.lastCenter &&
+      this.lastCenter[0] === newCenter[0] &&
+      this.lastCenter[1] === newCenter[1];
+
+    if (isSameCenter) {
+      return; // No hacer nada si el centro no ha cambiado
     }
 
     // Remover marcador anterior
@@ -181,14 +193,20 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
     }
 
     // Agregar nuevo marcador personalizado
-    this.marker = this.createMarkerForDelegacion(delegacion)
-      .addTo(this.map);
+    this.marker = this.createMarkerForDelegacion(delegacion).addTo(this.map);
 
     // Centrar el mapa (SIN animación, instantáneo)
-    this.map.setView([delegacion.latitude, delegacion.longitude], 16);
+    this.map.setView(newCenter, 16);
+
+    this.map.invalidateSize();
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.adjustMapOffset();
+      });
+    });
 
     // Ajustar el offset para que el marcador aparezca centrado entre buscador y carousel
-    this.adjustMapOffset();
+    this.lastCenter = newCenter;
   }
 
   private adjustMapOffset(): void {
@@ -211,7 +229,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
 
     // Calcular el offset en píxeles desde el centro actual
     const mapCenter = this.map.getSize().y / 2;
-    
+
     const offsetPixels = targetCenterY - mapCenter;
 
     // Aplicar el offset al mapa
@@ -229,7 +247,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
 
   private performSearch(searchValue: string): void {
     this.filteredDelegaciones = this.getFilteredDelegaciones(searchValue);
-    
+
     // Reset al primer resultado y actualizar mapa
     if (this.filteredDelegaciones.length > 0) {
       this.activeDelegacion = this.filteredDelegaciones[0];
@@ -256,7 +274,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
   private updateActiveDelegacionFromSlides(): void {
     // Swiper actualiza automáticamente el slide activo, simplemente actualizar el mapa
     const swiperEl = document.querySelector('swiper-container') as any;
-    
+
     if (swiperEl?.swiper) {
       const activeIndex = swiperEl.swiper.activeIndex;
       const slides = swiperEl.swiper.slides;
