@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { INFO_RECURSOS } from '../config/app-links';
@@ -13,11 +13,13 @@ import { RecursoInfo } from '../shared/models/types.model';
   imports: [CommonModule, IonicModule, TranslateModule],
 })
 export class InfoPage {
+  private translate = inject(TranslateService);
+
   recursos = INFO_RECURSOS;
 
   currentLang = 'es';
 
-  constructor(private translate: TranslateService) {
+  constructor() {
     this.currentLang = this.translate.getCurrentLang() || 'es';
   }
 

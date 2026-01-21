@@ -7,6 +7,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   OnInit,
   OnDestroy,
+  inject,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -62,6 +63,9 @@ const getAvailableProviders = () => {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DelegacionesPage implements AfterViewInit, OnDestroy {
+  private delegacionesService = inject(DelegacionesService);
+  private router = inject(Router);
+
   delegaciones: Delegacion[] = [];
   filteredDelegaciones: Delegacion[] = [];
   searchTerm = '';
@@ -79,7 +83,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
   @ViewChild('mapContainer', { read: ElementRef })
   mapContainer?: ElementRef<HTMLElement>;
 
-  constructor(private delegacionesService: DelegacionesService, private router: Router) {
+  constructor() {
     this.delegaciones = this.delegacionesService.getAll();
     this.filteredDelegaciones = this.delegaciones;
     this.activeDelegacion = this.delegaciones[0] || null;

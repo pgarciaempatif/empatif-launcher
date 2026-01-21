@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Delegacion } from '../shared/models/types.model';
@@ -14,13 +14,13 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [CommonModule, IonicModule, TranslateModule],
 })
 export class DelegacionDetallePage {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private delegacionesService = inject(DelegacionesService);
+
   delegacion?: Delegacion;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private delegacionesService: DelegacionesService,
-  ) {
+  constructor() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.delegacion = this.delegacionesService.getById(id);
@@ -39,7 +39,7 @@ export class DelegacionDetallePage {
         )}&query_place_id=${delegacion.mapsPlaceId}`
       : delegacion.mapsUrl ?? 'https://www.google.com/maps';
 
-    this.openExternal(delegacion.mapsUrl || url);
+    this.openExternal(url);
   }
 
   openExternal(url: string) {

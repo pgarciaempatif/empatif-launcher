@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -12,7 +12,9 @@ const STORAGE_KEY = 'APP_LANG';
   imports: [IonicModule],
 })
 export class AppComponent {
-  constructor(private translate: TranslateService) {
+  private translate = inject(TranslateService);
+
+  constructor() {
     this.initTranslate();
   }
 
