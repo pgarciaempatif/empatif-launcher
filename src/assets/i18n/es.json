@@ -16,8 +16,7 @@
       "MENSAJE": "No se encontró la delegación solicitada.",
       "VOLVER": "Volver a delegaciones"
     },
-    "TITULO": "Detalle delegación",
-    "VOLVER": "Volver"
+    "TITULO": "Detalle delegación"
   },
   "DELEGACIONES": {
     "BUSCADOR": {
@@ -80,5 +79,10 @@
     "DELEGACIONES": "Delegaciones",
     "HOME": "Inicio",
     "INFO": "Información"
+  },
+  "UPDATE": {
+    "BUTTON": "Actualiza ahora",
+    "MESSAGE": "Nueva versión disponible. Actualizando en {{seconds}}s...",
+    "UPDATING_MESSAGE": "Actualizando la app…"
   }
 }

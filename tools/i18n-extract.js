@@ -10,10 +10,11 @@ const OUTPUT_FILES = {
 };
 
 const TRANSLATE_REGEX = [
-  /{{\s*'([^']+)'\s*\|\s*translate\s*}}/g,
-  /translate\.instant\(\s*'([^']+)'\s*\)/g,
-  /marker\(\s*'([^']+)'\s*\)/g,
-  /\w+Key\s*:\s*'([^']+)'/g,
+  /{{\s*['"`]([^'"`]+)['"`]\s*\|\s*translate(?:\s*:\s*[^}]*)?\s*}}/g,
+  /translate\.instant\(\s*['"`]([^'"`]+)['"`]/g,
+  /translate\.get\(\s*['"`]([^'"`]+)['"`]/g,
+  /marker\(\s*['"`]([^'"`]+)['"`]\s*\)/g,
+  /\w+Key\s*:\s*['"`]([^'"`]+)['"`]/g,
 ];
 
 function walk(dir) {

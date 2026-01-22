@@ -16,8 +16,7 @@
       "MENSAJE": "No s'ha trobat la delegació sol·licitada.",
       "VOLVER": "Tornar a delegacions"
     },
-    "TITULO": "Detall delegació",
-    "VOLVER": "Tornar"
+    "TITULO": "Detall delegació"
   },
   "DELEGACIONES": {
     "BUSCADOR": {
@@ -80,5 +79,10 @@
     "DELEGACIONES": "Delegacions",
     "HOME": "Inici",
     "INFO": "Informació"
+  },
+  "UPDATE": {
+    "BUTTON": "Actualitza ara",
+    "MESSAGE": "Nova versió disponible. Actualitzant en {{seconds}}s...",
+    "UPDATING_MESSAGE": "Actualitzant l'app…"
   }
 }

@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { UpdateService } from './services/update.service';
 
 const STORAGE_KEY = 'APP_LANG';
 
@@ -11,11 +12,16 @@ const STORAGE_KEY = 'APP_LANG';
   standalone: true,
   imports: [IonicModule],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private translate = inject(TranslateService);
+  private updateService = inject(UpdateService);
 
   constructor() {
     this.initTranslate();
+  }
+
+  ngOnInit(): void {
+    this.updateService.init();
   }
 
   initTranslate() {
