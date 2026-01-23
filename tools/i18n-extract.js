@@ -58,9 +58,9 @@ function deepMergePreserve(target, source) {
       if (!target[key]) target[key] = {};
       deepMergePreserve(target[key], source[key]);
     } else {
-      // if (target[key] !== undefined) {
-      target[key] = source[key];
-      // }
+      if (target[key] !== undefined) {
+        target[key] = source[key];
+      }
     }
   }
 }

@@ -56,7 +56,7 @@
     "DOCUMENTO": "Documento",
     "ENLACE": "Ligazón",
     "GUIAS_RAPIDAS": "Guías Rápidas",
-    "INFO_RECURSOS": {
+    "INFO_GUIAS": {
       "CONTACTO_SOPORTE": {
         "CONTENIDO": "Escríbenos a soporte@empatif.com para incidencias urxentes.",
         "TITULO": "Soporte rápido"
@@ -64,6 +64,12 @@
       "FAQ": {
         "CONTENIDO": "Consulta as dúbidas máis habituais sobre procesos internos.",
         "TITULO": "Preguntas frecuentes"
+      }
+    },
+    "INFO_RECURSOS": {
+      "COMO_FIRMAR_CONTRATO_LABORAL": {
+        "ENLACE": "https://empatif.com/wp-content/uploads/2026/01/Instrucciones-Firma-Gal.pdf",
+        "TITULO": "Como asinar o teu contrato laboral"
       },
       "MANUAL_USUARIO": {
         "TITULO": "Manual de usuario (PDF)"

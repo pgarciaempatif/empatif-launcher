@@ -12,9 +12,17 @@ export interface RecursoInfo {
   id: string;
   tituloKey: string;
   tipo: RecursoTipo;
-  seccion: 'recursos' | 'guias';
   url?: string;
+  urlKey?: string;
+}
+
+export interface GuiaInfo {
+  id: string;
+  tituloKey: string;
+  url?: string;
+  urlKey?: string;
   contenidoKey?: string;
+  icono: string;
 }
 
 export interface Delegacion {

@@ -56,8 +56,8 @@
 }
 
 .delegacion-slide {
-  min-width: 340px;
-  max-width: min(90vw, 400px);
+  min-width: clamp(280px, 80vw, 400px);
+  max-width: clamp(280px, 90vw, 420px);
   scroll-snap-align: center;
   scroll-snap-stop: always;
   display: flex;
@@ -152,7 +152,7 @@
     margin-top: -6px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 14px solid var(--ion-color-primary);
+    border-top: 14px solid var(--ion-color-primary-tint);
     filter: drop-shadow(0 2px 2px rgba(141, 100, 246, 0.3));
   }
 
@@ -194,11 +194,11 @@
     align-items: center;
     width: 60px;
     height: 60px;
-    padding: 10px;
+    padding: 15%;
     background: white;
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(141, 100, 246, 0.2);
-    border: 3px solid var(--ion-color-primary);
+    border: 3px solid var(--ion-color-primary-tint);
     overflow: hidden;
   }
 

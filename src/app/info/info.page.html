@@ -25,7 +25,7 @@
       <ion-label>{{ 'INFO.RECURSOS' | translate }}</ion-label>
     </ion-list-header>
     <ion-item
-      *ngFor="let recurso of recursosSection"
+      *ngFor="let recurso of recursos"
       [button]="recurso.tipo !== 'text'"
       (click)="recurso.tipo !== 'text' && openResource(recurso)"
     >
@@ -47,8 +47,8 @@
     <ion-list-header>
       <ion-label>{{ 'INFO.GUIAS_RAPIDAS' | translate }}</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let guia of guiasSection">
-      <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+    <ion-item *ngFor="let guia of guias">
+      <ion-icon [name]="guia.icono" slot="start"></ion-icon>
       <ion-label>
         <h2>{{ guia.tituloKey | translate }}</h2>
         <p>{{ guia.contenidoKey | translate }}</p>

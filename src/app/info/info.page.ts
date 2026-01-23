@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { INFO_RECURSOS } from '../config/app-links';
+import { INFO_GUIAS, INFO_RECURSOS } from '../config/app-links';
 import { RecursoInfo } from '../shared/models/types.model';
 
 @Component({
@@ -16,6 +16,7 @@ export class InfoPage {
   private translate = inject(TranslateService);
 
   recursos = INFO_RECURSOS;
+  guias = INFO_GUIAS;
 
   currentLang = 'es';
 
@@ -23,19 +24,11 @@ export class InfoPage {
     this.currentLang = this.translate.getCurrentLang() || 'es';
   }
 
-  get recursosSection(): RecursoInfo[] {
-    return this.recursos.filter((recurso) => recurso.seccion === 'recursos');
-  }
-
-  get guiasSection(): RecursoInfo[] {
-    return this.recursos.filter((recurso) => recurso.seccion === 'guias');
-  }
-
   openResource(recurso: RecursoInfo) {
-    if (!recurso.url) {
+    if (!recurso.url && !recurso.urlKey) {
       return;
     }
-    window.open(recurso.url, '_blank');
+    window.open(recurso.urlKey ? this.translate.instant(recurso.urlKey) : recurso.url, '_blank');
   }
 
   changeLanguage(lang: string) {

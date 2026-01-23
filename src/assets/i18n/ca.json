@@ -56,7 +56,7 @@
     "DOCUMENTO": "Document",
     "ENLACE": "Enllaç",
     "GUIAS_RAPIDAS": "Guies Ràpides",
-    "INFO_RECURSOS": {
+    "INFO_GUIAS": {
       "CONTACTO_SOPORTE": {
         "CONTENIDO": "Escriu-nos a soporte@empatif.com per a incidències urgents.",
         "TITULO": "Suport ràpid"
@@ -64,6 +64,12 @@
       "FAQ": {
         "CONTENIDO": "Consulta els dubtes més habituals sobre processos interns.",
         "TITULO": "Preguntes freqüents"
+      }
+    },
+    "INFO_RECURSOS": {
+      "COMO_FIRMAR_CONTRATO_LABORAL": {
+        "ENLACE": "https://empatif.com/wp-content/uploads/2026/01/Instruccions-Firma-Cat.pdf",
+        "TITULO": "Com signar el teu contracte laboral"
       },
       "MANUAL_USUARIO": {
         "TITULO": "Manual d'usuari (PDF)"

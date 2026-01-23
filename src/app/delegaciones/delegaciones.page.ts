@@ -333,7 +333,7 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
     const swiperEl = document.querySelector('swiper-container') as any;
 
     if (swiperEl?.swiper) {
-      const activeIndex = swiperEl.swiper.activeIndex;
+      const activeIndex = swiperEl.swiper.realIndex;
       const slides = swiperEl.swiper.slides;
       const activeSlide = slides[activeIndex];
       if (activeSlide) {

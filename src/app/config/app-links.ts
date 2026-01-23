@@ -1,4 +1,4 @@
-import { HomeLink, RecursoInfo } from '../shared/models/types.model';
+import { GuiaInfo, HomeLink, RecursoInfo } from '../shared/models/types.model';
 
 export const FEATURED_LINK: HomeLink = {
   id: 'registro-horario',
@@ -44,28 +44,33 @@ export const INFO_RECURSOS: RecursoInfo[] = [
     id: 'manual-usuario',
     tituloKey: 'INFO.INFO_RECURSOS.MANUAL_USUARIO.TITULO',
     tipo: 'pdf',
-    seccion: 'recursos',
     url: 'https://example.com/manual-usuario.pdf',
   },
   {
     id: 'portal-empleado',
     tituloKey: 'INFO.INFO_RECURSOS.PORTAL_EMPLEADO.TITULO',
     tipo: 'link',
-    seccion: 'recursos',
     url: 'https://example.com/portal',
   },
   {
+    id: 'como-firmar-contrato-laboral',
+    tituloKey: 'INFO.INFO_RECURSOS.COMO_FIRMAR_CONTRATO_LABORAL.TITULO',
+    tipo: 'pdf',
+    urlKey: 'INFO.INFO_RECURSOS.COMO_FIRMAR_CONTRATO_LABORAL.ENLACE',
+  },
+];
+
+export const INFO_GUIAS: GuiaInfo[] = [
+  {
     id: 'faq',
-    tituloKey: 'INFO.INFO_RECURSOS.FAQ.TITULO',
-    tipo: 'text',
-    seccion: 'guias',
-    contenidoKey: 'INFO.INFO_RECURSOS.FAQ.CONTENIDO',
+    icono: 'help-circle-outline',
+    tituloKey: 'INFO.INFO_GUIAS.FAQ.TITULO',
+    contenidoKey: 'INFO.INFO_GUIAS.FAQ.CONTENIDO',
   },
   {
     id: 'contacto-soporte',
-    tituloKey: 'INFO.INFO_RECURSOS.CONTACTO_SOPORTE.TITULO',
-    tipo: 'text',
-    seccion: 'guias',
-    contenidoKey: 'INFO.INFO_RECURSOS.CONTACTO_SOPORTE.CONTENIDO',
+    icono: 'help-circle-outline',
+    tituloKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.TITULO',
+    contenidoKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.CONTENIDO',
   },
 ];
