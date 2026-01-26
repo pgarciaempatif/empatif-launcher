@@ -35,42 +35,48 @@ export const HOME_LINKS: HomeLink[] = [
     tituloKey: 'HOME.HOME_LINKS.MANUAL.TITULO',
     descripcionKey: 'HOME.HOME_LINKS.MANUAL.DESCRIPCION',
     icono: 'help-circle-outline',
-    url: 'https://example.com',
+    url: '/tabs/info',
   },
 ];
 
 export const INFO_RECURSOS: RecursoInfo[] = [
-  {
-    id: 'manual-usuario',
-    tituloKey: 'INFO.INFO_RECURSOS.MANUAL_USUARIO.TITULO',
-    tipo: 'pdf',
-    url: 'https://example.com/manual-usuario.pdf',
-  },
-  {
-    id: 'portal-empleado',
-    tituloKey: 'INFO.INFO_RECURSOS.PORTAL_EMPLEADO.TITULO',
-    tipo: 'link',
-    url: 'https://example.com/portal',
-  },
+  // {
+  //   id: 'manual-usuario',
+  //   tituloKey: 'INFO.INFO_RECURSOS.MANUAL_USUARIO.TITULO',
+  //   tipo: 'pdf',
+  //   url: 'https://example.com/manual-usuario.pdf',
+  // },
+  // {
+  //   id: 'portal-empleado',
+  //   tituloKey: 'INFO.INFO_RECURSOS.PORTAL_EMPLEADO.TITULO',
+  //   tipo: 'link',
+  //   url: 'https://example.com/portal',
+  // },
   {
     id: 'como-firmar-contrato-laboral',
     tituloKey: 'INFO.INFO_RECURSOS.COMO_FIRMAR_CONTRATO_LABORAL.TITULO',
     tipo: 'pdf',
     urlKey: 'INFO.INFO_RECURSOS.COMO_FIRMAR_CONTRATO_LABORAL.ENLACE',
   },
+  {
+    id: 'como-realizar-formacion-prl',
+    tituloKey: 'INFO.INFO_RECURSOS.COMO_REALIZAR_FORMACION_PRL.TITULO',
+    tipo: 'pdf',
+    urlKey: 'INFO.INFO_RECURSOS.COMO_REALIZAR_FORMACION_PRL.ENLACE',
+  },
 ];
 
 export const INFO_GUIAS: GuiaInfo[] = [
-  {
-    id: 'faq',
-    icono: 'help-circle-outline',
-    tituloKey: 'INFO.INFO_GUIAS.FAQ.TITULO',
-    contenidoKey: 'INFO.INFO_GUIAS.FAQ.CONTENIDO',
-  },
-  {
-    id: 'contacto-soporte',
-    icono: 'help-circle-outline',
-    tituloKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.TITULO',
-    contenidoKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.CONTENIDO',
-  },
+  // {
+  //   id: 'faq',
+  //   icono: 'help-circle-outline',
+  //   tituloKey: 'INFO.INFO_GUIAS.FAQ.TITULO',
+  //   contenidoKey: 'INFO.INFO_GUIAS.FAQ.CONTENIDO',
+  // },
+  // {
+  //   id: 'contacto-soporte',
+  //   icono: 'help-circle-outline',
+  //   tituloKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.TITULO',
+  //   contenidoKey: 'INFO.INFO_GUIAS.CONTACTO_SOPORTE.CONTENIDO',
+  // },
 ];
