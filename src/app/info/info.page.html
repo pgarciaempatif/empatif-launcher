@@ -20,9 +20,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
+  <ion-list *ngIf="recursos.length">
     <ion-list-header>
-      <ion-label>{{ 'INFO.RECURSOS' | translate }}</ion-label>
+      <h2>{{ 'INFO.RECURSOS' | translate }}</h2>
     </ion-list-header>
     <ion-item
       *ngFor="let recurso of recursos"
@@ -34,7 +34,7 @@
         slot="start"
       ></ion-icon>
       <ion-label>
-        <h2>{{ recurso.tituloKey | translate }}</h2>
+        <h3>{{ recurso.tituloKey | translate }}</h3>
         <p *ngIf="recurso.tipo === 'pdf'">{{ 'INFO.DOCUMENTO' | translate }} PDF</p>
       </ion-label>
       <ion-badge *ngIf="recurso.tipo === 'link'" color="tertiary"
@@ -43,14 +43,14 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="guias.length">
     <ion-list-header>
-      <ion-label>{{ 'INFO.GUIAS_RAPIDAS' | translate }}</ion-label>
+      <h2>{{ 'INFO.GUIAS_RAPIDAS' | translate }}</h2>
     </ion-list-header>
     <ion-item *ngFor="let guia of guias">
       <ion-icon [name]="guia.icono" slot="start"></ion-icon>
       <ion-label>
-        <h2>{{ guia.tituloKey | translate }}</h2>
+        <h3>{{ guia.tituloKey | translate }}</h3>
         <p>{{ guia.contenidoKey | translate }}</p>
       </ion-label>
     </ion-item>

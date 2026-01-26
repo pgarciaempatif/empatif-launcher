@@ -39,10 +39,9 @@
 
 .container {
   padding: 20px 28px;
-}
-
-.container > * {
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .featured-card {
@@ -54,7 +53,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  aspect-ratio: 3;
+  aspect-ratio: 2.5;
   cursor: pointer;
 }
 
@@ -100,9 +99,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-weight: 600;
   box-shadow: 0 12px 24px rgba(96, 66, 255, 0.2);
+}
+
+.tile h2 {
+  font-size: 1rem;
+  margin: 0;
 }
 
 .tile ion-icon {

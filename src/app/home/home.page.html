@@ -6,6 +6,7 @@
   <div *ngIf="!loading" class="home-shell">
     <section class="hero">
       <div class="hero-top">
+        <h1 class="visually-hidden">Empatif</h1>
         <div class="logo-badge">
           <img src="assets/logo.png" alt="Empatif" />
         </div>
@@ -37,7 +38,7 @@
           (click)="openExternal(link.url)"
         >
           <ion-icon [name]="link.icono" aria-hidden="true"></ion-icon>
-          <span>{{ link.tituloKey | translate }}</span>
+          <h2>{{ link.tituloKey | translate }}</h2>
         </button>
       </div>
     </section>
