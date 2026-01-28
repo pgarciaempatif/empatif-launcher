@@ -65,6 +65,7 @@
     "DOCUMENTO": "Documento",
     "ENLACE": "Enlace",
     "GUIAS_RAPIDAS": "Guías Rápidas",
+    "IDIOMA": "Idioma",
     "INFO_GUIAS": {
       "CONTACTO_SOPORTE": {
         "CONTENIDO": "Escríbenos a soporte@empatif.com para incidencias urgentes.",
@@ -91,6 +92,8 @@
         "TITULO": "Portal del empleado"
       }
     },
+    "MODO_OSCURO": "Modo oscuro",
+    "PREFERENCIAS": "Preferencias",
     "RECURSOS": "Recursos",
     "TITULO": "Ayuda e Información"
   },

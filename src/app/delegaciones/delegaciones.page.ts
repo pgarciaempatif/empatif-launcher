@@ -14,11 +14,12 @@ import { IonicModule } from '@ionic/angular';
 import * as L from 'leaflet';
 import 'leaflet-providers';
 import { register } from 'swiper/element/bundle';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Delegacion } from '../shared/models/types.model';
 import { DelegacionesService } from '../services/delegaciones.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { ThemeService } from '../services/theme.service';
 
 // Registrar elementos de Swiper
 register();
@@ -64,6 +65,9 @@ const getAvailableProviders = () => {
 export class DelegacionesPage implements AfterViewInit, OnDestroy {
   private delegacionesService = inject(DelegacionesService);
   private router = inject(Router);
+  private themeService = inject(ThemeService);
+
+  private themeSubscription?: Subscription;
 
   delegaciones: Delegacion[] = [];
   filteredDelegaciones: Delegacion[] = [];
@@ -77,10 +81,6 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
   private searchSubject = new Subject<string>();
   private searchSubscription: any;
   private lastCenter: [number, number] | null = null;
-
-  // Listener de tema
-  private themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  private themeListener?: (e: MediaQueryListEvent) => void;
 
   // CAMBIA ESTE VALOR PARA PROBAR DIFERENTES TEMAS
   availableThemes = getAvailableProviders();
@@ -109,16 +109,13 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
       });
 
     // Listener de tema
-    this.themeListener = () => this.onThemeChanged();
-    this.themeMediaQuery.addEventListener('change', this.themeListener);
+    this.themeSubscription = this.themeService.isDark$.subscribe(() => {
+      this.onThemeChanged();
+    });
   }
 
   private getCurrentTheme(): MapTheme {
-    return this.isDarkMode() ? 'CartoDB.DarkMatter' : 'CartoDB.Positron';
-  }
-
-  private isDarkMode(): boolean {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return this.themeService.isDark ? 'CartoDB.DarkMatter' : 'CartoDB.Positron';
   }
 
   private initializeMap(): void {
@@ -296,9 +293,8 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
       this.searchSubscription.unsubscribe();
     }
 
-    // Limpiar listener de tema
-    if (this.themeListener) {
-      this.themeMediaQuery.removeEventListener('change', this.themeListener);
+    if (this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
     }
   }
 

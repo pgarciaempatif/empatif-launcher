@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HomeLink } from '../shared/models/types.model';
 import { TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
   private router = inject(Router);
+  private themeService = inject(ThemeService);
   title = environment.appTitle;
   featuredLink: HomeLink | null = FEATURED_LINK;
   tileLinks: HomeLink[] = HOME_LINKS;

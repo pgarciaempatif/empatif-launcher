@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Delegacion } from '../shared/models/types.model';
 import { DelegacionesService } from '../services/delegaciones.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-delegacion-detalle',
@@ -17,6 +18,7 @@ export class DelegacionDetallePage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private delegacionesService = inject(DelegacionesService);
+  private themeService = inject(ThemeService);
 
   delegacion?: Delegacion;
   cleanTel?: string;

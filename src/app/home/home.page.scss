@@ -47,7 +47,7 @@
 .featured-card {
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 16px 32px rgba(17, 13, 45, 0.12);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
   margin: 0;
   position: relative;
   display: flex;
@@ -55,6 +55,10 @@
   justify-content: flex-end;
   aspect-ratio: 2.5;
   cursor: pointer;
+
+  @media (min-width: 600px) {
+    aspect-ratio: 4.5;
+  }
 }
 
 .featured-card ion-img {
@@ -102,7 +106,7 @@
   justify-content: center;
   gap: 10px;
   font-weight: 600;
-  box-shadow: 0 12px 24px rgba(96, 66, 255, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
 }
 
 .tile h2 {

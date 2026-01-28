@@ -26,7 +26,9 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules)),
     importProvidersFrom(
-      IonicModule.forRoot(),
+      IonicModule.forRoot({
+        mode: 'ios',
+      }),
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,

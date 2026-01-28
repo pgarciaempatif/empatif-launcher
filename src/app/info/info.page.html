@@ -1,35 +1,22 @@
 <ion-header translucent="true">
   <ion-toolbar color="primary">
     <ion-title>{{ 'INFO.TITULO' | translate }}</ion-title>
-
-    <ion-buttons slot="end" style="height: 0">
-      <ion-select
-        interface="popover"
-        [value]="currentLang"
-        (ionChange)="changeLanguage($event.detail.value)"
-        selectedText="{{ currentLang.toUpperCase() }}"
-        toggleIcon=""
-        mode="md"
-      >
-        <ion-select-option value="es">Español</ion-select-option>
-        <ion-select-option value="ca">Català</ion-select-option>
-        <ion-select-option value="gl">Galego</ion-select-option>
-      </ion-select>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngIf="recursos.length">
+  <ion-list class="container" *ngIf="recursos.length">
     <ion-list-header>
       <h2>{{ 'INFO.RECURSOS' | translate }}</h2>
     </ion-list-header>
     <ion-item
-      *ngFor="let recurso of recursos"
+      *ngFor="let recurso of recursos; let last = last"
       [button]="recurso.tipo !== 'text'"
       (click)="recurso.tipo !== 'text' && openResource(recurso)"
+      [lines]="last ? 'none': 'default'"
     >
       <ion-icon
+        aria-hidden="true"
         [name]="recurso.tipo === 'pdf' ? 'document-text-outline' : 'link-outline'"
         slot="start"
       ></ion-icon>
@@ -43,16 +30,47 @@
     </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="guias.length">
+  <ion-list class="container" *ngIf="guias.length">
     <ion-list-header>
       <h2>{{ 'INFO.GUIAS_RAPIDAS' | translate }}</h2>
     </ion-list-header>
-    <ion-item *ngFor="let guia of guias">
-      <ion-icon [name]="guia.icono" slot="start"></ion-icon>
+    <ion-item *ngFor="let guia of guias; let last = last" [lines]="last ? 'none': 'default'">
+      <ion-icon aria-hidden="true" [name]="guia.icono" slot="start"></ion-icon>
       <ion-label>
         <h3>{{ guia.tituloKey | translate }}</h3>
         <p>{{ guia.contenidoKey | translate }}</p>
       </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="container">
+    <ion-list-header>
+      <h2>{{ 'INFO.PREFERENCIAS' | translate }}</h2>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon aria-hidden="true" name="language-outline" slot="start"></ion-icon>
+      <ion-select
+        label="{{ 'INFO.IDIOMA' | translate }}"
+        interface="popover"
+        [value]="currentLang"
+        (ionChange)="changeLanguage($event.detail.value)"
+      >
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="ca">Català</ion-select-option>
+        <ion-select-option value="gl">Galego</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon aria-hidden="true" name="moon-outline" slot="start"></ion-icon>
+      <ion-toggle
+        [(ngModel)]="paletteToggle"
+        (ionChange)="toggleChange($event)"
+        aria-label="Toggle theme"
+        [enableOnOffLabels]="true"
+        >{{ 'INFO.MODO_OSCURO' | translate }}</ion-toggle
+      >
     </ion-item>
   </ion-list>
 </ion-content>

@@ -5,3 +5,7 @@ ion-list-header {
 h3 {
   font-size: 1rem;
 }
+
+ion-item {
+  --transition: none;
+}
