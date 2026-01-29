@@ -9,21 +9,16 @@
   min-height: 100%;
 }
 
-.hero {
-  background: var(--ion-color-primary);
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 16px;
 }
 
-.hero-top {
-  display: flex;
-  justify-content: center;
-}
-
 .logo-badge {
-  width: 92px;
-  height: 92px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: #ffffff;
   display: flex;
@@ -33,21 +28,21 @@
 }
 
 .logo-badge img {
-  width: 64px;
-  height: 64px;
+  width: 75%;
+  height: 75%;
 }
 
 .container {
-  padding: 20px 28px;
+  padding: 28px 28px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .featured-card {
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  box-shadow: var(--action-box-shadow);
   margin: 0;
   position: relative;
   display: flex;
@@ -106,7 +101,7 @@
   justify-content: center;
   gap: 10px;
   font-weight: 600;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  box-shadow: var(--action-box-shadow);
 }
 
 .tile h2 {

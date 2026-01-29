@@ -256,7 +256,14 @@ export class DelegacionesPage implements AfterViewInit, OnDestroy {
       popupAnchor: [0, -70],
     });
 
-    return L.marker(delegacion.coordenadas, { icon });
+    const marker = L.marker(delegacion.coordenadas, { icon });
+
+    // Añadir click para abrir detalle
+    marker.on('click', () => {
+      this.openDelegacionDetalle(delegacion);
+    });
+
+    return marker;
   }
 
   private async updateMapMarker(delegacion: Delegacion): Promise<void> {

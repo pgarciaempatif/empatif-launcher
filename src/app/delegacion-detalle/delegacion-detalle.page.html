@@ -16,9 +16,7 @@
     <div class="container">
       <ion-card>
         <ion-card-header>
-          <ion-card-title
-            >{{ 'DELEGACION.DELEGACION' | translate }} {{ delegacion.nombre }}</ion-card-title
-          >
+          <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <p *ngIf="delegacion.direccion">
@@ -51,7 +49,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card class="actions">
+      <div class="actions">
         <ion-button *ngIf="validTel" expand="block" [href]="'tel:' + cleanTel">
           <ion-icon name="call-outline" aria-hidden="true" slot="start"></ion-icon>
           {{ 'DELEGACION.BOTONES.LLAMAR' | translate }}
@@ -74,7 +72,7 @@
           <ion-icon name="map-outline" aria-hidden="true" slot="start"></ion-icon>
           {{ 'DELEGACION.BOTONES.ABRIR_MAPA' | translate }}
         </ion-button>
-      </ion-card>
+      </div>
     </div>
   </ng-container>
 

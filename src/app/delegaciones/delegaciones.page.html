@@ -12,7 +12,6 @@
   <ion-searchbar
     #searchBar
     placeholder="{{ 'DELEGACIONES.BUSCADOR.PLACEHOLDER' | translate }}"
-    mode="ios"
     [(ngModel)]="searchTerm"
     (ionInput)="handleSearch()"
     animated="true"
@@ -26,11 +25,10 @@
     *ngIf="filteredDelegaciones.length; else emptyState"
   >
     <swiper-container
-      [attr.slides-per-view]="'auto'"
-      [attr.centered-slides]="'true'"
-      [attr.loop]="'false'"
-      [attr.space-between]="'16'"
-      [attr.grab-cursor]="'true'"
+      slides-per-view="auto"
+      centered-slides="true"
+      loop="false"
+      grab-cursor="true"
       class="delegaciones-swiper"
       (swiperslidechange)="onSlideChange($event)"
     >
@@ -47,9 +45,7 @@
         >
           <ion-img [src]="delegacion.imagenUrl" [alt]="delegacion.nombre"></ion-img>
           <ion-card-header>
-            <ion-card-title
-              >{{ 'DELEGACIONES.DELEGACION' | translate }} {{ delegacion.nombre }}</ion-card-title
-            >
+            <ion-card-title>{{ delegacion.nombre }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <div class="delegacion-address">
